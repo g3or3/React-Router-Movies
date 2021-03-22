@@ -1,13 +1,23 @@
-import React from 'react';
+import React from "react";
+import { useHistory } from "react-router";
 
 export default function SavedList(props) {
-  return (
-    <div className="saved-list">
-      <h3>Saved Movies:</h3>
-      {props.list.map(movie => (
-        <span className="saved-movie">{movie.title}</span>
-      ))}
-      <div className="home-button">Home</div>
-    </div>
-  );
+	const history = useHistory();
+
+	return (
+		<div className="saved-list">
+			<h3>Saved Movies:</h3>
+			{props.list.map((movie) => (
+				<span className="saved-movie">{movie.title}</span>
+			))}
+			<div
+				className="home-button"
+				onClick={() => {
+					history.push("/");
+				}}
+			>
+				Home
+			</div>
+		</div>
+	);
 }
